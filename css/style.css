@@ -1,5 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  color: whitesmoke;
+  background-color: #222831;
+}
+
 body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+header {
+  background-color: #1A1A2E;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+}
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+main .game {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+main .game .row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+main .game .box {
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  cursor: pointer;
+  border: 0;
+}
+main .game #green {
+  background-color: lime;
+}
+main .game #green:hover {
+  background-color: lime;
+  -webkit-box-shadow: inset -1px 3px 8px 5px lime, 2px 5px 16px 0px darkgreen, 4em 4em 1em 8em rgba(0, 0, 0, 0);
+  box-shadow: inset -1px 3px 8px 5px lime, 2px 5px 16px 0px darkgreen, 4em 4em 1em 8em rgba(0, 0, 0, 0);
+}
+main .game #red {
   background-color: red;
+}
+main .game #red:hover {
+  background-color: red;
+  -webkit-box-shadow: inset -1px 3px 8px 5px red, 2px 5px 16px 0px brown, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset -1px 3px 8px 5px red, 2px 5px 16px 0px brown, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+main .game #yellow {
+  background-color: yellow;
+}
+main .game #yellow:hover {
+  background-color: yellow;
+  -webkit-box-shadow: inset -1px 3px 8px 5px yellow, 2px 5px 16px 0px gold, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset -1px 3px 8px 5px yellow, 2px 5px 16px 0px gold, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+main .game #blue {
+  background-color: blue;
+}
+main .game #blue:hover {
+  background-color: blue;
+  -webkit-box-shadow: inset -1px 3px 8px 5px blue, 2px 5px 16px 0px darkblue, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: inset -1px 3px 8px 5px blue, 2px 5px 16px 0px darkblue, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+footer {
+  background-color: #1A1A2E;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+}
+footer p a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #892CDC;
 }
 
 /*# sourceMappingURL=style.css.map */
