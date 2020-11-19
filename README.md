@@ -12,3 +12,4 @@ There are 4 squares, each has a different colored background. When you hit START
 - [x] Create a switch statement to pick and push a color by the generated random number to the array
 - [] Create a function that checks if the 2 array is right (check by clicks, index by index).
 - [] If the user clicks on each box, run the array comparisor, count the clicks, because that's will be the index, what should be the base
+
