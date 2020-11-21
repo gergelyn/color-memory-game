@@ -1,6 +1,6 @@
 //  Global Variables
 let colorNum = 4;
-let level = 1;
+let level = 2;
 let pickedColorsByApp = [];
 let pickedColorsByUser = [];
 
@@ -15,6 +15,7 @@ greenBox.addEventListener('click', event => {
     pickedColorsByUser.push("green");
     console.log(pickedColorsByUser);
     setAnimation("green");
+    checkPicks();
 });
 
 redBox.addEventListener('click', event => {
@@ -22,6 +23,7 @@ redBox.addEventListener('click', event => {
     pickedColorsByUser.push("red");
     console.log(pickedColorsByUser);
     setAnimation("red");
+    checkPicks();
 });
 
 yellowBox.addEventListener('click', event => {
@@ -29,6 +31,7 @@ yellowBox.addEventListener('click', event => {
     pickedColorsByUser.push("yellow");
     console.log(pickedColorsByUser);
     setAnimation("yellow");
+    checkPicks();
 });
 
 blueBox.addEventListener('click', event => {
@@ -36,6 +39,7 @@ blueBox.addEventListener('click', event => {
     pickedColorsByUser.push("blue");
     console.log(pickedColorsByUser);
     setAnimation("blue");
+    checkPicks();
 });
 
 //  Functions
@@ -53,6 +57,37 @@ let setAnimation = (color) => {
         document.querySelector("#"+color).classList.remove("flash");
         console.log("After remove: " + document.querySelector("#"+color).outerHTML);
     }, 650);    
+};
+
+let resetLevel = () => {
+    level = 1;
+    console.log("Level reseted: " + level);
+};
+
+let resetPickedColorsByUser = () => {
+    pickedColorsByUser.length = 0;
+    console.log("pickedColorsByUser reseted: " + pickedColorsByUser);
+};
+
+let resetPickedColorsByApp = () => {
+    pickedColorsByApp.length = 0;
+    console.log("pickedColorsByApp reseted: " + pickedColorsByApp);
+};
+
+let gameLost = () => {
+    resetPickedColorsByApp();
+    resetPickedColorsByUser();
+    resetLevel();
+};
+
+let checkPicks = () => {
+    for(let i = 0; i < pickedColorsByUser.length; i++) {
+        if(pickedColorsByApp[i] != pickedColorsByUser[i]) {
+            gameLost();
+        } else {
+            console.log("You got this!");
+        }
+    }
 };
 
 let pickColorByApp = () => {
@@ -78,6 +113,7 @@ let pickColorByApp = () => {
 };
 
 pickColorByApp();
+pickColorByApp();
 
 for(let i = 0; i < level; i++) {
     setTimeout(() => {
@@ -86,16 +122,6 @@ for(let i = 0; i < level; i++) {
     console.log(pickedColorsByApp);
 }
 
-// Check 2 array's elements
-// for(let i = 0; i < pickedColorsByApp.length; i++) {
-//     if(pickedColorsByApp[i] != pickedColorsByUser[i]) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
 
 //  If I add the flash animation, I can't remove it in the moment, so I have to check if the given element has it, and if has, remove it
 //  The solution is the Element.classList.toggle();
-

@@ -33,5 +33,10 @@ index.html
 
 **Utilities:** holds helper files, variables, functions, mixins and other config files.
 
+## Features
+
+## Features TODO
+
+- [] High Score
 
 
