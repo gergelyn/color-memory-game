@@ -9,6 +9,20 @@ let redBox = document.querySelector("#red");
 let yellowBox = document.querySelector("#yellow");
 let greenBox = document.querySelector("#green");
 let blueBox = document.querySelector("#blue");
+let levelEl = document.querySelector(".level");
+let startBtn = document.querySelector(".start");
+let tryAgainBtn = document.querySelector(".try-again");
+let gameMessage = document.querySelector(".game-over");
+levelEl.innerHTML = level;
+
+startBtn.addEventListener('click', event => {
+    start();
+});
+
+tryAgainBtn.addEventListener('click', event => {
+    gameMessage.style.display = "none";
+    start();
+});
 
 greenBox.addEventListener('click', event => {
     console.log('Green has clicked');
@@ -63,14 +77,20 @@ let setAnimation = (color) => {
     }, 650);    
 };
 
+let refreshLevel = () => {
+    levelEl.innerHTML = level;
+};
+
 let increaseLevel = () => {
     level++;
+    refreshLevel();
 };
 
 //  Reset Functions
 
 let resetLevel = () => {
     level = 1;
+    refreshLevel();
     console.log("Level reseted: " + level);
 };
 
@@ -85,21 +105,54 @@ let resetPickedColorsByApp = () => {
 };
 
 let gameLost = () => {
+    gameMessage.classList.add(".fade-in");
+    gameMessage.style.display = "flex";
     resetPickedColorsByApp();
     resetPickedColorsByUser();
     resetLevel();
 };
 
+let checkArrays = (a, b) => {
+    return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
+};
+
+
 let checkPicks = () => {
     console.log("Checking Picks");
     for(let i = 0; i < pickedColorsByUser.length; i++) {
-        if(pickedColorsByApp[i] != pickedColorsByUser[i]) {
-            gameLost();
-        } else {
-            if(pickedColorsByApp.length == pickedColorsByUser.length) {
+        console.log("For loop");
+        console.log(pickedColorsByApp[i] + i);
+        console.log(pickedColorsByUser[i] + i);
+        // if(pickedColorsByUser[i] !== pickedColorsByApp[i]) {
+        //     console.log("if(pickedColorsByUser[i] !== pickedColorsByApp[i])");
+        //     gameLost();
+        // } else {
+        //     if(pickedColorsByApp.length === pickedColorsByUser.length) {
+        //         console.log("if(pickedColorsByApp.length == pickedColorsByUser.length)");
+        //         console.log("Go to repeatAndPick");
+        //         // resetPickedColorsByUser();
+        //         repeatAndPick();
+        //     } else {
+        //         console.log("You got this!");
+        //     }
+        // }
+
+        if(pickedColorsByUser.length !== pickedColorsByApp.length) {
+            if(pickedColorsByUser[i] !== pickedColorsByApp[i]) {
+                gameLost();
+            } else if(pickedColorsByUser[i] === pickedColorsByApp[i]) {
+                console.log("You got this!");
+            } else {
+                console.log("Not equal lengths, else");
+            }
+        } else if(pickedColorsByUser.length === pickedColorsByApp.length) {
+            if(!checkArrays(pickedColorsByUser, pickedColorsByApp)) {
+                gameLost();
+            } else if(checkArrays(pickedColorsByUser, pickedColorsByApp)) {
+                console.log("Go to repeatAndPick");
                 repeatAndPick();
             } else {
-                console.log("You got this!");
+                console.log("Equal lengths, else");
             }
         }
     }
@@ -136,27 +189,37 @@ let repeatAndPick = () => {
     resetPickedColorsByUser();
     console.log("Repeating and picking");
     increaseLevel();
-    for(let i = 0; i < pickedColorsByApp.length; i++) {
-        setTimeout(() => {
-            setAnimation(pickedColorsByApp[i]);
-        }, i * 1300);
-        console.log(pickedColorsByApp);
-    }
     pickColorByApp();
-    setAnimation(pickedColorsByApp[pickedColorsByApp.length-1]);   // Get the last item of the array
+    setTimeout(() => {
+        for(let i = 0; i < pickedColorsByApp.length; i++) {
+            setTimeout(() => {
+                setAnimation(pickedColorsByApp[i]);
+            }, i * 1300);
+            console.log(pickedColorsByApp);
+        }
+    }, 1300);
+    
+    // setAnimation(pickedColorsByApp[pickedColorsByApp.length-1]);   // Get the last item of the array
 };
 
-if(level == 1) {
-    pickColorByApp();
-    setAnimation(pickedColorsByApp[0]);
-    console.log(pickedColorsByApp);
-}
+let start = () => {
+    resetPickedColorsByApp();
+    setTimeout(() => {
+        pickColorByApp();
+        setAnimation(pickedColorsByApp[0]);
+        console.log(pickedColorsByApp);
+    }, 650);
+    
+};
 
-//  - [] The problem is that if I click, there are no reseting on the pickedColorsByUser array, so the 2 arrays have the same length all the time
-//  - [] The above problem has to be double checked
-//  - [] Another problem is that in the checkPicks, to lose the game
-//  - [] Last color doesn't flash (problem in repeatAndPick)
-//  - [] Make work the timing for flashing
+// start();
+
+//  - [x] The problem is that if I click, there are no reseting on the pickedColorsByUser array, so the 2 arrays have the same length all the time
+//  - [x] The above problem has to be double checked
+//  - [x] Another problem is that in the checkPicks, to lose the game
+//  - [x] Last color doesn't flash (problem in repeatAndPick)
+//  - [x] Make work the timing for flashing
+//  - [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
 
 // for(let i = 0; i < level; i++) {
 //     setTimeout(() => {

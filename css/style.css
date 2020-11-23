@@ -1,3 +1,15 @@
+button {
+  border: none;
+  background-color: #892CDC;
+  color: whitesmoke;
+  padding: 1em 2em;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  border-radius: 1em;
+}
+
 footer {
   background-color: #1A1A2E;
   display: flex;
@@ -29,8 +41,37 @@ header {
 
 main {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
+}
+main .game-over {
+  position: absolute;
+  display: none;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(238, 228, 218, 0.5);
+  font-size: 3em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  text-align: center;
+}
+main .game-over p {
+  color: black;
+  margin-bottom: 1em;
+}
+main .stat {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+main .stat h1 {
+  margin-bottom: 1em;
 }
 main .game {
   display: flex;
@@ -75,6 +116,10 @@ main .game #blue {
   animation: 650ms flash 1 alternate ease-in-out;
 }
 
+.fade-in {
+  animation: fade-in 800ms ease 1200ms;
+}
+
 /* TODOs
  *  [] Do the keyframes for every selector reference
  */
@@ -89,6 +134,14 @@ main .game #blue {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 * {
