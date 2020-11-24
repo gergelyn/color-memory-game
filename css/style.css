@@ -68,10 +68,10 @@ main .stat {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  margin: 1em;
 }
 main .stat h1 {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 main .game {
   display: flex;
@@ -84,8 +84,8 @@ main .game .row {
   flex-flow: row nowrap;
 }
 main .game .box {
-  width: 10em;
-  height: 10em;
+  width: 9em;
+  height: 9em;
   margin: 1em;
   cursor: pointer;
   border: 0;
@@ -114,10 +114,14 @@ main .game #blue {
 
 .flash {
   animation: 650ms flash 1 alternate ease-in-out;
+  -webkit-animation: 650ms flash 1 alternate ease-in-out;
+  -moz-animation: 650ms flash 1 alternate ease-in-out;
 }
 
 .fade-in {
   animation: fade-in 800ms ease 1200ms;
+  -webkit-animation: fade-in 800ms ease 1200ms;
+  -moz-animation: fade-in 800ms ease 1200ms;
 }
 
 /* TODOs
@@ -126,14 +130,19 @@ main .game #blue {
 @keyframes flash {
   0% {
     transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
   }
   50% {
     transform: scale(1.05);
-    -webkit-box-shadow: 0px 0px 30px 15px var(--box-shadow-color);
+    -webkit-transform: scale(1.05);
     box-shadow: 0px 0px 30px 15px var(--box-shadow-color);
+    -webkit-box-shadow: 0px 0px 30px 15px var(--box-shadow-color);
   }
   100% {
     transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
   }
 }
 @keyframes fade-in {

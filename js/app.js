@@ -4,6 +4,7 @@ let level = 1;
 let pickedColorsByApp = [];
 let pickedColorsByUser = [];
 
+
 //  Elements
 let redBox = document.querySelector("#red");
 let yellowBox = document.querySelector("#yellow");
@@ -203,7 +204,9 @@ let repeatAndPick = () => {
 };
 
 let start = () => {
+    resetLevel();
     resetPickedColorsByApp();
+    startBtn.innerHTML = "RESTART";
     setTimeout(() => {
         pickColorByApp();
         setAnimation(pickedColorsByApp[0]);

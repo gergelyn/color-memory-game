@@ -38,5 +38,11 @@ index.html
 ## Features TODO
 
 - [] High Score
+- [x] The problem is that if I click, there are no reseting on the pickedColorsByUser array, so the 2 arrays have the same length all the time
+- [x] The above problem has to be double checked
+- [x] Another problem is that in the checkPicks, to lose the game
+- [x] Last color doesn't flash (problem in repeatAndPick)
+- [x] Make work the timing for flashing
+- [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
 
 
