@@ -35,14 +35,21 @@ index.html
 
 ## Features
 
-## Features TODO
-
+## Features & TODOs
+- [] Favicon generating has to be done with 512x512 
 - [] High Score
+- [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
+- [x] Create a function that generates random numbers (from 0 to 4)
+- [x] Create an empty array for the colors
+- [x] Create an empty array for the users input
+- [x] Create a switch statement to pick and push a color by the generated random number to the array
+- [x] Create a function that checks if the 2 array is right (check by clicks, index by index).
+- [x] If the user clicks on each box, run the array comparisor, count the clicks, because that's will be the index, what should be the base
 - [x] The problem is that if I click, there are no reseting on the pickedColorsByUser array, so the 2 arrays have the same length all the time
 - [x] The above problem has to be double checked
 - [x] Another problem is that in the checkPicks, to lose the game
 - [x] Last color doesn't flash (problem in repeatAndPick)
 - [x] Make work the timing for flashing
-- [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
+
 
 
