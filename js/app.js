@@ -6,7 +6,6 @@ let pickedColorsByApp = [];
 let pickedColorsByUser = [];
 let color;
 
-
 //  Elements
 let boxes = document.getElementsByClassName("box");
 let levelEl = document.querySelector(".level");
@@ -92,28 +91,25 @@ let gameLost = () => {
 };
 
 let checkArrays = (a, b) => {
-    return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((val, index) => val === b[index]);
+    return Array.isArray(a) && Array.isArray(b) && a.every((val, index) => val === b[index]);
 };
-
 
 let checkPicks = () => {
     console.log("Checking Picks");  // Test line
     if(pickedColorsByUser.length !== pickedColorsByApp.length) {
-        if(!checkArrays) {
+        if(!checkArrays(pickedColorsByUser, pickedColorsByApp)) {
             gameLost();
         } else {    // This else is just for testing
             console.log("You got this!");
         }
     } else {
-        if(!checkArrays) {
+        if(!checkArrays(pickedColorsByUser, pickedColorsByApp)) {
             gameLost();
         } else {
             repeatAndPick();
         }
     }
 };
-
-
 
 let pickColorByApp = () => {
     console.log("Picking color by app");  // Test line
@@ -132,7 +128,7 @@ let repeatAndPick = () => {
             setTimeout(() => {
                 setAnimation(pickedColorsByApp[i]);
             }, i * 1300);
-            console.log(pickedColorsByApp);
+            console.log(pickedColorsByApp);  // Test line
         }
     }, 1300);
 };
