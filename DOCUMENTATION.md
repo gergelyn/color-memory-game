@@ -36,7 +36,7 @@ index.html
 ## Features
 
 ## Features & TODOs
-- [] Favicon generating has to be done with 512x512 
+- [x] Favicon generating has to be done with 512x512 
 - [] High Score
 - [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
 - [x] Create a function that generates random numbers (from 0 to 4)

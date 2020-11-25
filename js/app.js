@@ -3,13 +3,11 @@ let colorNum = 4;
 let level = 1;
 let pickedColorsByApp = [];
 let pickedColorsByUser = [];
+let color;
 
 
 //  Elements
-let redBox = document.querySelector("#red");
-let yellowBox = document.querySelector("#yellow");
-let greenBox = document.querySelector("#green");
-let blueBox = document.querySelector("#blue");
+let boxes = document.getElementsByClassName("box");
 let levelEl = document.querySelector(".level");
 let startBtn = document.querySelector(".start");
 let tryAgainBtn = document.querySelector(".try-again");
@@ -25,41 +23,20 @@ tryAgainBtn.addEventListener('click', event => {
     start();
 });
 
-greenBox.addEventListener('click', event => {
-    console.log('Green has clicked');
-    pickedColorsByUser.push("green");
-    console.log("Picked colors by user: " + pickedColorsByUser);
-    console.log("Picked colors by app: " + pickedColorsByApp);
-    setAnimation("green");
-    checkPicks();
-});
+for(let i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", boxClick);
+    console.log(boxes[i].id, typeof boxes[i].id);
+}
 
-redBox.addEventListener('click', event => {
-    console.log('Red has clicked');
-    pickedColorsByUser.push("red");
+function boxClick() {
+    color = this.id;
+    console.log(color + " has clicked");
+    pickedColorsByUser.push(color);
     console.log("Picked colors by user: " + pickedColorsByUser);
     console.log("Picked colors by app: " + pickedColorsByApp);
-    setAnimation("red");
+    setAnimation(color);
     checkPicks();
-});
-
-yellowBox.addEventListener('click', event => {
-    console.log('Yellow has clicked');
-    pickedColorsByUser.push("yellow");
-    console.log("Picked colors by user: " + pickedColorsByUser);
-    console.log("Picked colors by app: " + pickedColorsByApp);
-    setAnimation("yellow");
-    checkPicks();
-});
-
-blueBox.addEventListener('click', event => {
-    console.log('Blue has clicked');
-    pickedColorsByUser.push("blue");
-    console.log("Picked colors by user: " + pickedColorsByUser);
-    console.log("Picked colors by app: " + pickedColorsByApp);
-    setAnimation("blue");
-    checkPicks();
-});
+}
 
 //  Functions
 
