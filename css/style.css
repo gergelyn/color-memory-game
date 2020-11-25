@@ -43,6 +43,7 @@ main {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  align-items: center;
 }
 main .game-over {
   position: absolute;
@@ -64,28 +65,26 @@ main .game-over p {
   margin-bottom: 1em;
 }
 main .stat {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5em;
 }
-main .stat h1 {
-  margin-bottom: 0.5em;
+main .stat .level-block,
+main .stat .high-score-block {
+  text-align: center;
+  border: 0;
+  border-radius: 1em;
+  background-color: orange;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 main .game {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-main .game .row {
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 main .game .box {
-  width: 9em;
-  height: 9em;
+  width: 9rem;
+  height: 9rem;
   margin: 1em;
   cursor: pointer;
   border: 0;

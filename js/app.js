@@ -6,6 +6,8 @@ let pickedColorsByApp = [];
 let pickedColorsByUser = [];
 let color;
 
+console.log(typeof window.localStorage);
+
 //  Elements
 let boxes = document.getElementsByClassName("box");
 let levelEl = document.querySelector(".level");
@@ -28,6 +30,8 @@ for(let i = 0; i < boxes.length; i++) {
     console.log(boxes[i].id, typeof boxes[i].id);  // Test line
 }
 
+//  Functions
+
 function boxClick() {
     color = this.id;
     console.log(color + " has clicked");  // Test line
@@ -38,20 +42,14 @@ function boxClick() {
     checkPicks();
 }
 
-//  Functions
-
 let getRandomInteger = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 };
 
 let setAnimation = (color) => {
-    // console.log("Before add: " + document.querySelector("#"+color).outerHTML);  //  Just for testing
     document.querySelector("#"+color).classList.add("flash");
-    // console.log("After add: " + document.querySelector("#"+color).outerHTML);   //  Just for testing
     setTimeout(() => {
-        // console.log("Before remove: " + document.querySelector("#"+color).outerHTML);
         document.querySelector("#"+color).classList.remove("flash");
-        // console.log("After remove: " + document.querySelector("#"+color).outerHTML);
     }, 650);    
 };
 
