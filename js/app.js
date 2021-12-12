@@ -50,7 +50,7 @@ let setAnimation = (color) => {
     document.querySelector("#"+color).classList.add("flash");
     setTimeout(() => {
         document.querySelector("#"+color).classList.remove("flash");
-    }, 500);    // 650    
+    }, 700);    // 650    
 };
 
 let refreshLevel = () => {
@@ -125,10 +125,10 @@ let repeatAndPick = () => {
         for(let i = 0; i < pickedColorsByApp.length; i++) {
             setTimeout(() => {
                 setAnimation(pickedColorsByApp[i]);
-            }, i * 650);   // 1300
+            }, i * 750);   // 1300
             console.log(pickedColorsByApp);  // Test line
         }
-    }, 1000);   // 1300
+    }, 1400);   // 1300
 };
 
 let start = () => {
@@ -139,5 +139,5 @@ let start = () => {
         pickColorByApp();
         setAnimation(pickedColorsByApp[0]);
         console.log(pickedColorsByApp);  // Test line
-    }, 500);    // 650
+    }, 700);    // 650
 };
