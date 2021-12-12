@@ -50,7 +50,7 @@ let setAnimation = (color) => {
     document.querySelector("#"+color).classList.add("flash");
     setTimeout(() => {
         document.querySelector("#"+color).classList.remove("flash");
-    }, 500);    // 650    
+    }, 650);    // 650    
 };
 
 let refreshLevel = () => {
