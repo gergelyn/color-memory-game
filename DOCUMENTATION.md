@@ -36,9 +36,11 @@ index.html
 ## Features
 
 ## Features & TODOs
-- [x] Favicon generating has to be done with 512x512 
 - [] High Score
-- [] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
+- [] Give sounds to clicks
+- [x] Favicon generating has to be done with 512x512 
+- [x] Timing: Repeating has to be faster
+- [x] Maybe the checkPick can be enough with checking the 2 arrays with checkArrays(pickedColorsByUser, pickedColorsByApp)
 - [x] Create a function that generates random numbers (from 0 to 4)
 - [x] Create an empty array for the colors
 - [x] Create an empty array for the users input
